@@ -1,79 +1,56 @@
 <?php
-  if (!empty($_GET['q'])) {
-    switch ($_GET['q']) {
-      case 'info':
-        phpinfo(); 
-        exit;
-      break;
-    }
-  }
+    include("templates/header.php");
+    include("templates/navbar.php");
+    include("templates/menu.php");
+    include('settings/db.php'); 
+    // Validacion de la sesion
+    include("settings/sesiones.php");
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laragon</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Karla:400" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Karla';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-
-            .opt {
-                margin-top: 30px;
-            }
-
-            .opt a {
-              text-decoration: none;
-              font-size: 150%;
-            }
-            
-            a:hover {
-              color: red;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title" title="Laragon">Laragon</div>
-     
-                <div class="info"><br />
-                      <?php print($_SERVER['SERVER_SOFTWARE']); ?><br />
-                      PHP version: <?php print phpversion(); ?>   <span><a title="phpinfo()" href="/?q=info">info</a></span><br />
-                      Document Root: <?php print ($_SERVER['DOCUMENT_ROOT']); ?><br />
-
-                </div>
-                <div class="opt">
-                  <div><a title="Getting Started" href="https://laragon.org/docs">Getting Started</a></div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Inicio</h1>
                 </div>
             </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Tarjetas Info -->
+        <div class="row">
+
+            <!-- col -->
+            <div class="col-lg-3 col-6">
+                <!-- small box -->
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <p>Películas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <a href="/views/read.php" class="small-box-footer">More info  <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
 
         </div>
-    </body>
-</html>
+        <!-- /. Tarjetas Info -->
+
+
+    </section>
+    <!-- /. Main content -->
+</div>
+<!-- /.content-wrapper -->
+
+<?php
+
+include_once("templates/footer.php");
+
+?>
